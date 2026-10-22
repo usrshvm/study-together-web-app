@@ -1,0 +1,17 @@
+OPERATING SYSTEMS - CHAPTER 3: CPU SCHEDULING NOTES
+
+1. Fundamental Concepts:
+CPU scheduling is the basis of multiprogrammed operating systems. By switching the CPU among processes, the operating system can make the computer more productive.
+
+2. Scheduling Criteria:
+- CPU Utilization: Keep the CPU as busy as possible (0% to 100%, ideally 40% to 90%).
+- Throughput: Number of processes completed per unit time.
+- Turnaround Time: The interval from process submission to completion.
+- Waiting Time: Amount of time spent waiting in the ready queue.
+- Response Time: Time from request submission until the first response is produced.
+
+3. Scheduling Algorithms:
+- FCFS (First-Come, First-Served): Simple, non-preemptive, suffers from Convoy Effect.
+- SJF (Shortest Job First): Optimal average waiting time.
+- Round Robin (RR): Time quantum based, designed for time-sharing systems.
+- Priority Scheduling: May suffer from starvation (solved by aging).

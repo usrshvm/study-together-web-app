@@ -1,0 +1,592 @@
+/* ================================
+   PROGRESS PAGE
+================================ */
+
+.progress-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 30px;
+}
+
+
+/* Header */
+
+.progress-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.progress-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+
+/* Back Button */
+
+.back-btn {
+    border: 1px solid #e5e7eb;
+    background: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    color: #374151;
+}
+
+.back-btn:hover {
+    background: #f9fafb;
+}
+
+
+/* ================================
+   STAT CARDS
+================================ */
+
+.progress-stats {
+    max-width: 1200px;
+    margin: 0 auto 25px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.progress-stat-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef2ff;
+
+    border-radius: 10px;
+
+    font-size: 21px;
+}
+
+.progress-stat-card span {
+    display: block;
+
+    font-size: 13px;
+    color: #6b7280;
+
+    margin-bottom: 5px;
+}
+
+.progress-stat-card strong {
+    display: block;
+
+    font-size: 23px;
+    color: #111827;
+}
+
+.progress-stat-card small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+
+/* ================================
+   MAIN GRID
+================================ */
+
+.progress-grid {
+    max-width: 1200px;
+    margin: 0 auto 25px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* Cards */
+
+.progress-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    padding: 25px;
+}
+
+
+/* Card Header */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+.card-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #111827;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.week-label {
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    padding: 7px 12px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   BAR CHART
+================================ */
+
+.chart {
+    height: 270px;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.chart-y-axis {
+    width: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding-bottom: 30px;
+
+    font-size: 11px;
+    color: #9ca3af;
+
+    text-align: right;
+}
+
+.chart-area {
+    position: relative;
+
+    flex: 1;
+
+    height: 100%;
+}
+
+.grid-lines {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.grid-lines span {
+    width: 100%;
+
+    border-top: 1px dashed #e5e7eb;
+}
+
+
+/* Bars */
+
+.bars {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-around;
+
+    padding-left: 10px;
+}
+
+.bar-column {
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: 45px;
+}
+
+.bar {
+    width: 28px;
+
+    min-height: 10px;
+
+    background: #4f46e5;
+
+    border-radius: 6px 6px 2px 2px;
+
+    transition: 0.2s;
+}
+
+.bar:hover {
+    opacity: 0.8;
+
+    transform: translateY(-3px);
+}
+
+.bar-column span {
+    font-size: 11px;
+
+    color: #6b7280;
+}
+
+
+/* ================================
+   SUBJECT PROGRESS
+================================ */
+
+.subject-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.subject-progress {
+    width: 100%;
+}
+
+.subject-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+}
+
+.subject-info span {
+    color: #374151;
+}
+
+.subject-info strong {
+    color: #6b7280;
+
+    font-weight: 500;
+}
+
+.progress-track {
+    width: 100%;
+
+    height: 8px;
+
+    background: #eef0f4;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: #4f46e5;
+
+    border-radius: 10px;
+}
+
+
+/* ================================
+   BOTTOM GRID
+================================ */
+
+.bottom-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* ================================
+   ACTIVITY
+================================ */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid #f0f1f3;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f4f6;
+
+    border-radius: 9px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-details strong {
+    display: block;
+
+    color: #374151;
+
+    font-size: 14px;
+}
+
+.activity-details span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+.activity-time {
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   GOALS
+================================ */
+
+.goals-card {
+    text-align: center;
+}
+
+.goal-circle {
+    width: 160px;
+    height: 160px;
+
+    margin: 10px auto 20px;
+
+    border-radius: 50%;
+
+    border: 12px solid #e0e7ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal-circle strong {
+    display: block;
+
+    font-size: 27px;
+
+    color: #111827;
+}
+
+.goal-circle span {
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+.goal-message {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+.goal-message strong {
+    color: #4f46e5;
+}
+
+.goal-progress {
+    height: 8px;
+
+    background: #eef0f4;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.goal-progress-fill {
+    width: 63%;
+
+    height: 100%;
+
+    background: #4f46e5;
+
+    border-radius: 10px;
+}
+
+.goal-btn {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #374151;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.goal-btn:hover {
+    background: #f9fafb;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 950px) {
+
+    .progress-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-grid,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .progress-page {
+        padding: 20px;
+    }
+
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-header {
+        align-items: flex-start;
+    }
+
+    .progress-header h1 {
+        font-size: 23px;
+    }
+
+    .progress-stat-card {
+        padding: 18px;
+    }
+
+    .chart {
+        height: 230px;
+    }
+
+    .bar {
+        width: 20px;
+    }
+
+    .card-header {
+        gap: 10px;
+    }
+
+    .week-label {
+        display: none;
+    }
+}

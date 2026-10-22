@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | StudyTogether</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <main class="auth-container">
+        <section class="auth-brand">
+            <a class="brand" href="login.html">StudyTogether<span>.</span></a>
+            <div class="brand-content">
+                <div class="brand-icon">✦</div>
+                <h1>Better together.<br>Brighter tomorrow.</h1>
+                <p>Your space to focus, collaborate, and learn without limits.</p>
+                <div class="feature-pills">
+                    <span>◷ Focus sessions</span>
+                    <span>✧ AI study buddy</span>
+                    <span>♧ Study together</span>
+                </div>
+            </div>
+            <p class="brand-footer">Make every study session count.</p>
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-form-wrap">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h2>Let's pick up where you left off.</h2>
+                <p class="subtitle">Sign in to continue your learning journey.</p>
+
+                <form id="loginForm">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="you@example.com" autocomplete="email" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password"
+                           placeholder="Enter your password"
+                           autocomplete="current-password" required>
+
+                    <p id="formMessage" class="form-message" role="alert"></p>
+
+                    <button id="loginButton" type="submit">Sign in <span>→</span></button>
+                </form>
+
+                <p class="auth-switch">
+                    New to StudyTogether?
+                    <a href="register.html">Create an account</a>
+                </p>
+                <a class="back-link" href="register.html">Don't have an account? Register →</a>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

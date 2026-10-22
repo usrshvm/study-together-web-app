@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Timer - StudyTogether</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/timer.css">
+</head>
+
+<body>
+
+    <div class="timer-page">
+
+        <!-- Header -->
+        <header class="timer-header">
+
+            <button class="back-btn" onclick="window.location.href='../index.html'">
+                ← Back
+            </button>
+
+            <div>
+                <h1>Study Timer</h1>
+                <p>Stay focused and make your study sessions count.</p>
+            </div>
+
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="timer-container">
+
+            <!-- Timer Card -->
+            <section class="timer-card">
+
+                <!-- Modes -->
+                <div class="timer-modes">
+
+                    <button class="mode-btn active" data-mode="pomodoro">
+                        Pomodoro
+                    </button>
+
+                    <button class="mode-btn" data-mode="short">
+                        Short Break
+                    </button>
+
+                    <button class="mode-btn" data-mode="long">
+                        Long Break
+                    </button>
+
+                </div>
+
+
+                <!-- Timer -->
+                <div class="timer-display">
+
+                    <div class="timer-circle">
+
+                        <span id="timerDisplay">
+                            25:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Current Mode -->
+                <p class="current-mode" id="currentMode">
+                    Focus Session
+                </p>
+
+
+                <!-- Controls -->
+                <div class="timer-controls">
+
+                    <button id="startBtn" class="start-btn">
+                        Start
+                    </button>
+
+                    <button id="resetBtn" class="reset-btn">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <!-- Session Counter -->
+                <div class="session-info">
+
+                    <div>
+                        <span class="session-label">
+                            Completed Sessions
+                        </span>
+
+                        <strong id="sessionCount">
+                            0
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="session-label">
+                            Current Subject
+                        </span>
+
+                        <select id="subjectSelect">
+
+                            <option value="General Study">
+                                General Study
+                            </option>
+
+                            <option value="Data Structures">
+                                Data Structures
+                            </option>
+
+                            <option value="DBMS">
+                                DBMS
+                            </option>
+
+                            <option value="Operating Systems">
+                                Operating Systems
+                            </option>
+
+                            <option value="Computer Networks">
+                                Computer Networks
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Study Technique -->
+            <aside class="technique-card">
+
+                <div class="technique-icon">
+                    🍅
+                </div>
+
+                <h2>Pomodoro Technique</h2>
+
+                <p>
+                    The Pomodoro Technique divides your study time
+                    into focused sessions followed by short breaks.
+                </p>
+
+                <div class="technique-steps">
+
+                    <div class="technique-step">
+                        <span>1</span>
+                        <p>Focus for 25 minutes</p>
+                    </div>
+
+                    <div class="technique-step">
+                        <span>2</span>
+                        <p>Take a 5 minute break</p>
+                    </div>
+
+                    <div class="technique-step">
+                        <span>3</span>
+                        <p>Repeat the cycle</p>
+                    </div>
+
+                    <div class="technique-step">
+                        <span>4</span>
+                        <p>Take a longer break after 4 sessions</p>
+                    </div>
+
+                </div>
+
+                <div class="feynman-card">
+
+                    <h3>💡 Feynman Technique</h3>
+
+                    <p>
+                        Explain what you learned in simple words.
+                        If you can't explain it simply, you probably
+                        haven't understood it yet.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/timer.js"></script>
+    <script src="../js/auth-guard.js"></script>
+</body>
+</html>

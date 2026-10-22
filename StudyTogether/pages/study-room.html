@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Room | StudyTogether AI</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/study-room.css">
+</head>
+
+<body>
+
+    <div class="room-page">
+
+        <!-- Room Header -->
+        <header class="room-header">
+
+            <div class="room-title">
+
+                <a href="../index.html" class="back-btn">
+                    ←
+                </a>
+
+                <div>
+                    <h2>DSA Study Room</h2>
+                    <p>Data Structures & Algorithms</p>
+                </div>
+
+            </div>
+
+            <div class="room-actions">
+
+                <div class="members-count">
+                    🟢 <span>4 Members</span>
+                </div>
+
+                <button class="leave-btn" id="leaveRoom">
+                    Leave Room
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Main Room -->
+        <main class="room-container">
+
+            <!-- Video Section -->
+            <section class="video-section">
+
+                <div class="video-grid">
+
+                    <!-- User 1 -->
+                    <div class="video-card">
+
+                        <div class="fake-video">
+                            <div class="video-avatar">R</div>
+                        </div>
+
+                        <div class="video-name">
+                            Rahul
+                        </div>
+
+                        <div class="mic-status">
+                            🎤
+                        </div>
+
+                    </div>
+
+
+                    <!-- User 2 -->
+                    <div class="video-card">
+
+                        <div class="fake-video">
+                            <div class="video-avatar">S</div>
+                        </div>
+
+                        <div class="video-name">
+                            Shivam
+                        </div>
+
+                        <div class="mic-status">
+                            🎤
+                        </div>
+
+                    </div>
+
+
+                    <!-- User 3 -->
+                    <div class="video-card">
+
+                        <div class="fake-video">
+                            <div class="video-avatar">P</div>
+                        </div>
+
+                        <div class="video-name">
+                            Priya
+                        </div>
+
+                        <div class="mic-status muted">
+                            🔇
+                        </div>
+
+                    </div>
+
+
+                    <!-- User 4 -->
+                    <div class="video-card">
+
+                        <div class="fake-video">
+                            <div class="video-avatar">A</div>
+                        </div>
+
+                        <div class="video-name">
+                            Arjun
+                        </div>
+
+                        <div class="mic-status">
+                            🎤
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Study Controls -->
+                <div class="study-controls">
+
+                    <button class="control-btn" id="micBtn">
+                        🎤
+                        <span>Mute</span>
+                    </button>
+
+                    <button class="control-btn" id="cameraBtn">
+                        📹
+                        <span>Camera</span>
+                    </button>
+
+                    <div class="room-timer">
+
+                        <span>Study Time</span>
+
+                        <strong id="timer">
+                            25:00
+                        </strong>
+
+                    </div>
+
+                    <button class="control-btn" id="materialsBtn">
+                        📚
+                        <span>Materials</span>
+                    </button>
+
+                    <button class="control-btn end-call" id="endCallBtn">
+                        ☎
+                        <span>Leave</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Chat Section -->
+            <aside class="chat-section">
+
+                <div class="chat-header">
+
+                    <div>
+                        <h3>Room Chat</h3>
+                        <p>Discuss with your study group</p>
+                    </div>
+
+                    <span class="online-dot">
+                        ●
+                    </span>
+
+                </div>
+
+
+                <!-- Messages -->
+                <div class="messages" id="messages">
+
+                    <div class="message">
+
+                        <div class="message-avatar">
+                            R
+                        </div>
+
+                        <div class="message-content">
+
+                            <strong>Rahul</strong>
+
+                            <p>
+                                Hey guys! Ready to study?
+                            </p>
+
+                            <small>
+                                10:21 AM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="message">
+
+                        <div class="message-avatar">
+                            S
+                        </div>
+
+                        <div class="message-content">
+
+                            <strong>Shivam</strong>
+
+                            <p>
+                                Yep! Let's start with Trees.
+                            </p>
+
+                            <small>
+                                10:22 AM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="message">
+
+                        <div class="message-avatar">
+                            P
+                        </div>
+
+                        <div class="message-content">
+
+                            <strong>Priya</strong>
+
+                            <p>
+                                I have some doubts about BST.
+                            </p>
+
+                            <small>
+                                10:23 AM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Chat Input -->
+                <form class="chat-input" id="chatForm">
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type a message..."
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        ➤
+                    </button>
+
+                </form>
+
+            </aside>
+
+        <!-- Room Materials Modal -->
+        <div class="room-modal-backdrop" id="roomMaterialsModal" style="display: none;">
+            <div class="room-modal-dialog">
+                <div class="room-modal-header">
+                    <h3>📚 Your Study Materials</h3>
+                    <button type="button" class="room-modal-close" id="closeRoomMaterialsBtn">&times;</button>
+                </div>
+                <div class="room-modal-body" id="roomMaterialsList">
+                    <div class="room-materials-loading">Loading your materials...</div>
+                </div>
+                <div class="room-modal-footer">
+                    <a href="materials.html" class="room-materials-link">Upload &amp; Manage All Materials →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/study-room.js"></script>
+    <script src="../js/auth-guard.js"></script>
+</body>
+
+</html>

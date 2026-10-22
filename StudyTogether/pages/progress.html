@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress - StudyTogether</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/progress.css">
+</head>
+
+<body>
+
+    <div class="progress-page">
+
+        <!-- Header -->
+        <header class="progress-header">
+
+            <button class="back-btn" onclick="window.location.href='../index.html'">
+                ← Back
+            </button>
+
+            <div>
+                <h1>Study Progress</h1>
+                <p>Track your study habits and progress.</p>
+            </div>
+
+        </header>
+
+
+        <!-- Overview Cards -->
+        <section class="progress-stats">
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">⏱️</div>
+
+                <div>
+                    <span>Total Study Time</span>
+                    <strong>12h 45m</strong>
+                    <small>This week</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">📚</div>
+
+                <div>
+                    <span>Study Sessions</span>
+                    <strong>24</strong>
+                    <small>This week</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">🔥</div>
+
+                <div>
+                    <span>Current Streak</span>
+                    <strong>7 Days</strong>
+                    <small>Keep it going</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-stat-card">
+
+                <div class="stat-icon">🎯</div>
+
+                <div>
+                    <span>Focus Rate</span>
+                    <strong>86%</strong>
+                    <small>This week</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Grid -->
+        <section class="progress-grid">
+
+            <!-- Weekly Activity -->
+            <div class="progress-card weekly-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Weekly Study Activity</h2>
+                        <p>Hours studied each day</p>
+                    </div>
+
+                    <span class="week-label">
+                        This Week
+                    </span>
+
+                </div>
+
+
+                <div class="chart">
+
+                    <div class="chart-y-axis">
+                        <span>4h</span>
+                        <span>3h</span>
+                        <span>2h</span>
+                        <span>1h</span>
+                        <span>0h</span>
+                    </div>
+
+
+                    <div class="chart-area">
+
+                        <div class="grid-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+
+                        <div class="bars">
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 55%;"></div>
+                                <span>Mon</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 70%;"></div>
+                                <span>Tue</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 45%;"></div>
+                                <span>Wed</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 80%;"></div>
+                                <span>Thu</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 65%;"></div>
+                                <span>Fri</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 90%;"></div>
+                                <span>Sat</span>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar" style="height: 60%;"></div>
+                                <span>Sun</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Subject Progress -->
+            <div class="progress-card subject-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Subject Progress</h2>
+                        <p>Study time by subject</p>
+                    </div>
+
+                </div>
+
+
+                <div class="subject-list">
+
+                    <div class="subject-progress">
+
+                        <div class="subject-info">
+                            <span>Data Structures</span>
+                            <strong>4h 20m</strong>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject-progress">
+
+                        <div class="subject-info">
+                            <span>DBMS</span>
+                            <strong>3h 15m</strong>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject-progress">
+
+                        <div class="subject-info">
+                            <span>Operating Systems</span>
+                            <strong>2h 40m</strong>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 52%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject-progress">
+
+                        <div class="subject-info">
+                            <span>Computer Networks</span>
+                            <strong>2h 30m</strong>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 48%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Section -->
+        <section class="bottom-grid">
+
+            <!-- Recent Activity -->
+            <div class="progress-card activity-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Recent Activity</h2>
+                        <p>Your latest study sessions</p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-list">
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            📘
+                        </div>
+
+                        <div class="activity-details">
+                            <strong>Data Structures</strong>
+                            <span>Binary Trees • 45 minutes</span>
+                        </div>
+
+                        <span class="activity-time">
+                            Today
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            🗄️
+                        </div>
+
+                        <div class="activity-details">
+                            <strong>DBMS</strong>
+                            <span>Normalization • 30 minutes</span>
+                        </div>
+
+                        <span class="activity-time">
+                            Today
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            💻
+                        </div>
+
+                        <div class="activity-details">
+                            <strong>Operating Systems</strong>
+                            <span>Process Scheduling • 50 minutes</span>
+                        </div>
+
+                        <span class="activity-time">
+                            Yesterday
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            🌐
+                        </div>
+
+                        <div class="activity-details">
+                            <strong>Computer Networks</strong>
+                            <span>TCP/IP • 35 minutes</span>
+                        </div>
+
+                        <span class="activity-time">
+                            Yesterday
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Goals -->
+            <div class="progress-card goals-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Weekly Goal</h2>
+                        <p>Your study target</p>
+                    </div>
+
+                </div>
+
+
+                <div class="goal-circle">
+
+                    <div>
+                        <strong>12.75</strong>
+                        <span>/ 20 hrs</span>
+                    </div>
+
+                </div>
+
+
+                <p class="goal-message">
+                    You're <strong>63%</strong> of the way to your weekly goal.
+                </p>
+
+
+                <div class="goal-progress">
+
+                    <div class="goal-progress-fill"></div>
+
+                </div>
+
+
+                <button id="goalBtn" class="goal-btn">
+                    Set Study Goal
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="../js/progress.js"></script>
+    <script src="../js/auth-guard.js"></script>
+</body>
+</html>

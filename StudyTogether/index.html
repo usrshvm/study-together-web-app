@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyTogether AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Icon sprite (stroke icons, used via <use href="#i-...">) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-logo" viewBox="0 0 24 24"><path d="M12 3a5.5 5.5 0 0 0-3.2 10c.7.6 1.2 1.3 1.2 2.2V16h4v-.8c0-.9.5-1.6 1.2-2.2A5.5 5.5 0 0 0 12 3z"/><path d="M10 19.5h4M10.8 22h2.4"/></symbol>
+        <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v10.5a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.6"/></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+        <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+        <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5"/><path d="M9.5 2.5h5"/></symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 21h18"/><rect x="5" y="11" width="3.5" height="7" rx="1"/><rect x="10.25" y="5" width="3.5" height="13" rx="1"/><rect x="15.5" y="13" width="3.5" height="5" rx="1"/></symbol>
+        <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.2"/><circle cx="8" cy="17" r="2.2"/></symbol>
+        <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/><path d="M16 17l5-5-5-5M21 12H9"/></symbol>
+        <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+        <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+        <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c.8 3.2 5 5.4 5 10a5 5 0 0 1-10 0c0-1.9.9-3.1 2-4 .2 1.3.9 2 1.8 2-.4-3 .1-5.6 1.2-8z"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+    </svg>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark"><svg class="ico"><use href="#i-logo"/></svg></span>
+            <span>StudyTogether</span>
+        </a>
+
+        <nav aria-label="Main">
+
+            <a href="index.html" class="nav-item active" aria-current="page" title="Dashboard">
+                <svg class="ico"><use href="#i-home"/></svg>
+                Dashboard
+            </a>
+
+            <a href="pages/study-room.html" class="nav-item" title="Study Room">
+                <svg class="ico"><use href="#i-users"/></svg>
+                Study Room
+            </a>
+
+            <a href="pages/materials.html" class="nav-item" title="Materials">
+                <svg class="ico"><use href="#i-file"/></svg>
+                Materials
+            </a>
+
+            <a href="pages/ai-chat.html" class="nav-item" title="AI Chat">
+                <svg class="ico"><use href="#i-sparkle"/></svg>
+                AI Chat
+            </a>
+
+            <a href="pages/study-timer.html" class="nav-item" title="Study Timer">
+                <svg class="ico"><use href="#i-timer"/></svg>
+                Study Timer
+            </a>
+
+            <a href="pages/progress.html" class="nav-item" title="Progress">
+                <svg class="ico"><use href="#i-chart"/></svg>
+                Progress
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item" title="Settings">
+                <svg class="ico"><use href="#i-sliders"/></svg>
+                Settings
+            </a>
+
+            <a href="#" class="nav-item" id="logoutButton" title="Logout">
+                <svg class="ico"><use href="#i-logout"/></svg>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+                <h2>Dashboard</h2>
+            </div>
+
+            <div class="user-section">
+
+                <button class="notification" aria-label="Notifications">
+                    <svg class="ico"><use href="#i-bell"/></svg>
+                </button>
+
+                <div class="user-info">
+
+                    <div class="avatar" id="userAvatar">S</div>
+
+                    <div>
+                        <strong id="userName">Student</strong>
+                        <small>Student</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <!-- Welcome -->
+            <div class="welcome">
+
+                <div class="welcome-content">
+                    <div class="welcome-text">
+                        <h1 id="welcomeHeading">Welcome back! 👋</h1>
+
+                        <p>
+                            Ready to make some progress today?
+                        </p>
+
+                        <button class="primary-btn" id="startStudyBtn">
+                            <svg class="ico"><use href="#i-play"/></svg>
+                            Start Studying
+                        </button>
+                    </div>
+
+                    <div class="welcome-cat">
+                        <img src="images/cat-studying.jpg" alt="Study Cat" class="welcome-cat-img">
+                    </div>
+                </div>
+
+                <!-- Drifting waves -->
+                <div class="waves" aria-hidden="true">
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 50 Q150 0 300 50 T600 50 T900 50 T1200 50 V100 H0Z"/></svg>
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 60 Q100 20 200 60 T400 60 T600 60 T800 60 T1000 60 T1200 60 V100 H0Z"/></svg>
+                    <svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 70 Q75 45 150 70 T300 70 T450 70 T600 70 T750 70 T900 70 T1050 70 T1200 70 V100 H0Z"/></svg>
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <svg class="ico"><use href="#i-timer"/></svg>
+                    </div>
+
+                    <div>
+                        <p>Today's Study Time</p>
+                        <h2>2h 35m</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <svg class="ico"><use href="#i-target"/></svg>
+                    </div>
+
+                    <div>
+                        <p>Study Sessions</p>
+                        <h2>5</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon amber">
+                        <svg class="ico"><use href="#i-flame"/></svg>
+                    </div>
+
+                    <div>
+                        <p>Current Streak</p>
+                        <h2>7 Days</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+
+                <!-- Today's Study -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Today's Study</h2>
+                            <p>Your subject-wise study time</p>
+                        </div>
+
+                        <button class="more-btn" aria-label="More options">
+                            <svg class="ico"><use href="#i-dots"/></svg>
+                        </button>
+
+                    </div>
+
+
+                    <div class="subject">
+
+                        <div class="subject-info">
+                            <span>Data Structures</span>
+                            <span>1h 20m</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress" style="--w: 80%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject">
+
+                        <div class="subject-info">
+                            <span>DBMS</span>
+                            <span>45m</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress" style="--w: 55%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject">
+
+                        <div class="subject-info">
+                            <span>Operating Systems</span>
+                            <span>30m</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress" style="--w: 35%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Actions -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Jump into your study tools</p>
+                        </div>
+
+                    </div>
+
+                    <div class="action-list">
+
+                        <a class="action-btn" href="pages/study-room.html">
+                            <span class="action-icon"><svg class="ico"><use href="#i-users"/></svg></span>
+
+                            <div class="action-text">
+                                <strong>Join Study Room</strong>
+                                <small>Study with your friends</small>
+                            </div>
+
+                            <svg class="ico action-arrow"><use href="#i-arrow"/></svg>
+                        </a>
+
+
+                        <a class="action-btn" id="askAiBtn" href="pages/ai-chat.html">
+                            <span class="action-icon"><svg class="ico"><use href="#i-sparkle"/></svg></span>
+
+                            <div class="action-text">
+                                <strong>Ask AI</strong>
+                                <small>Clear your academic doubts</small>
+                            </div>
+
+                            <svg class="ico action-arrow"><use href="#i-arrow"/></svg>
+                        </a>
+
+
+                        <a class="action-btn" href="pages/materials.html">
+                            <span class="action-icon"><svg class="ico"><use href="#i-file"/></svg></span>
+
+                            <div class="action-text">
+                                <strong>Open Materials</strong>
+                                <small>Access your study notes</small>
+                            </div>
+
+                            <svg class="ico action-arrow"><use href="#i-arrow"/></svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/auth-guard.js"></script>
+
+</body>
+
+</html>

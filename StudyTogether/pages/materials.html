@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Materials | StudyTogether AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/materials.css">
+</head>
+
+<body>
+    <div class="materials-page">
+
+        <!-- Header -->
+        <header class="materials-header">
+            <div class="materials-title">
+                <a href="../index.html" class="back-btn" title="Back to Dashboard">
+                    ←
+                </a>
+                <div>
+                    <h2>Study Materials</h2>
+                    <p>Organize, view, and download your study notes and resources</p>
+                </div>
+            </div>
+
+            <button class="upload-btn" id="uploadBtn" type="button">
+                <span>＋</span>
+                Upload Material
+            </button>
+        </header>
+
+        <!-- Main -->
+        <main class="materials-container">
+
+            <!-- Search & Filter -->
+            <div class="search-section">
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search your materials..."
+                    >
+                </div>
+
+                <select id="subjectFilter">
+                    <option value="all">All Subjects</option>
+                    <option value="Data Structures">Data Structures</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                </select>
+            </div>
+
+            <!-- Subjects Section -->
+            <section>
+                <div class="section-heading">
+                    <div>
+                        <h2>Your Subjects</h2>
+                        <p>Browse material by subject</p>
+                    </div>
+                    <button class="add-subject-btn" id="addSubjectBtn" type="button">
+                        + Add Subject
+                    </button>
+                </div>
+
+                <div class="subject-grid" id="subjectGrid">
+                    <!-- Dynamic Subject Cards loaded by JavaScript -->
+                    <div class="subject-card active-subject" data-subject="all">
+                        <div class="subject-card-icon">📚</div>
+                        <div>
+                            <h3>All Materials</h3>
+                            <p id="allMaterialsCount">Loading...</p>
+                        </div>
+                        <span class="subject-arrow">→</span>
+                    </div>
+
+                    <div class="subject-card" data-subject="Data Structures">
+                        <div class="subject-card-icon">🌳</div>
+                        <div>
+                            <h3>Data Structures</h3>
+                            <p class="subject-count">0 Materials</p>
+                        </div>
+                        <span class="subject-arrow">→</span>
+                    </div>
+
+                    <div class="subject-card" data-subject="DBMS">
+                        <div class="subject-card-icon">🗄️</div>
+                        <div>
+                            <h3>DBMS</h3>
+                            <p class="subject-count">0 Materials</p>
+                        </div>
+                        <span class="subject-arrow">→</span>
+                    </div>
+
+                    <div class="subject-card" data-subject="Operating Systems">
+                        <div class="subject-card-icon">⚙️</div>
+                        <div>
+                            <h3>Operating Systems</h3>
+                            <p class="subject-count">0 Materials</p>
+                        </div>
+                        <span class="subject-arrow">→</span>
+                    </div>
+
+                    <div class="subject-card" data-subject="Computer Networks">
+                        <div class="subject-card-icon">🌐</div>
+                        <div>
+                            <h3>Computer Networks</h3>
+                            <p class="subject-count">0 Materials</p>
+                        </div>
+                        <span class="subject-arrow">→</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Materials Table Section -->
+            <section class="recent-section">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="recentHeading">All Materials</h2>
+                        <p>Your uploaded resources and study documents</p>
+                    </div>
+                </div>
+
+                <div class="materials-table" id="materialsTable">
+                    <!-- Table Header -->
+                    <div class="material-row table-header">
+                        <div>Material</div>
+                        <div>Subject</div>
+                        <div>Type</div>
+                        <div>Added</div>
+                        <div style="text-align: right;">Actions</div>
+                    </div>
+
+                    <!-- Material rows loaded dynamically via materials.js -->
+                    <div class="empty-state" id="materialsLoading">
+                        <div class="spinner"></div>
+                        <p>Loading your study materials...</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- =========================
+             MODAL: UPLOAD MATERIAL
+        ========================= -->
+        <div class="modal-backdrop" id="uploadModal" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3>Upload Study Material</h3>
+                    <button type="button" class="modal-close-btn" id="closeUploadModalBtn">&times;</button>
+                </div>
+                <form id="uploadMaterialForm">
+                    <div class="modal-body">
+                        <!-- Dropzone / File Picker -->
+                        <div class="file-dropzone" id="dropzone">
+                            <input
+                                type="file"
+                                id="modalFileInput"
+                                class="file-dropzone-input"
+                                accept=".pdf,.doc,.docx,.txt,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg,.zip"
+                                required
+                            >
+                            <div class="dropzone-content" id="dropzonePrompt">
+                                <div class="dropzone-icon">📁</div>
+                                <div class="dropzone-text">
+                                    <strong>Choose a file</strong> or drag &amp; drop it here
+                                </div>
+                                <div class="dropzone-hint">PDF, Word, Text, PowerPoint, Excel, Images up to 50MB</div>
+                            </div>
+                            <div class="dropzone-file-preview" id="dropzoneFilePreview" style="display: none;">
+                                <span class="preview-icon" id="previewIcon">📄</span>
+                                <div class="preview-details">
+                                    <strong class="preview-filename" id="previewFilename">filename.pdf</strong>
+                                    <small class="preview-filesize" id="previewFilesize">2.4 MB</small>
+                                </div>
+                                <button type="button" class="preview-remove-btn" id="removeSelectedFileBtn" title="Change file">✕</button>
+                            </div>
+                        </div>
+
+                        <!-- Title input (Pre-filled automatically from file name, but user can edit based on need) -->
+                        <div class="form-group">
+                            <label for="materialTitle">Material Title</label>
+                            <input
+                                type="text"
+                                id="materialTitle"
+                                placeholder="Enter a title or keep the file name"
+                                required
+                                maxlength="150"
+                            >
+                            <small class="field-hint">Auto-filled from file name. Edit only if you want to rename it.</small>
+                        </div>
+
+                        <!-- Subject Selector with Add Custom option -->
+                        <div class="form-group">
+                            <label for="materialSubject">Subject</label>
+                            <div class="subject-select-wrapper">
+                                <select id="materialSubject">
+                                    <option value="Data Structures">Data Structures</option>
+                                    <option value="DBMS">DBMS</option>
+                                    <option value="Operating Systems">Operating Systems</option>
+                                    <option value="Computer Networks">Computer Networks</option>
+                                    <option value="__custom__">＋ New / Other Subject...</option>
+                                </select>
+                                <input
+                                    type="text"
+                                    id="customSubjectInput"
+                                    placeholder="Enter new subject name"
+                                    style="display: none; margin-top: 8px;"
+                                    maxlength="100"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Description (Optional) -->
+                        <div class="form-group">
+                            <label for="materialDescription">Description <span class="optional-badge">(optional)</span></label>
+                            <textarea
+                                id="materialDescription"
+                                rows="3"
+                                placeholder="Add chapter details, key topics, or notes..."
+                                maxlength="1000"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelUploadBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="submitUploadBtn">
+                            <span class="btn-spinner" id="uploadSpinner" style="display: none;"></span>
+                            <span id="uploadBtnText">Upload Material</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- =========================
+             MODAL: EDIT MATERIAL
+        ========================= -->
+        <div class="modal-backdrop" id="editModal" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3>Edit Study Material</h3>
+                    <button type="button" class="modal-close-btn" id="closeEditModalBtn">&times;</button>
+                </div>
+                <form id="editMaterialForm">
+                    <input type="hidden" id="editMaterialId">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="editTitle">Material Title</label>
+                            <input
+                                type="text"
+                                id="editTitle"
+                                required
+                                maxlength="150"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editSubject">Subject</label>
+                            <input
+                                type="text"
+                                id="editSubject"
+                                required
+                                maxlength="100"
+                                placeholder="e.g. Operating Systems"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editDescription">Description <span class="optional-badge">(optional)</span></label>
+                            <textarea
+                                id="editDescription"
+                                rows="3"
+                                maxlength="1000"
+                                placeholder="Add or update notes..."
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="saveEditBtn">
+                            <span class="btn-spinner" id="editSpinner" style="display: none;"></span>
+                            <span id="saveEditBtnText">Save Changes</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- =========================
+             MODAL: ADD SUBJECT
+        ========================= -->
+        <div class="modal-backdrop" id="subjectModal" style="display: none;">
+            <div class="modal-dialog modal-dialog-sm">
+                <div class="modal-header">
+                    <h3>Add New Subject</h3>
+                    <button type="button" class="modal-close-btn" id="closeSubjectModalBtn">&times;</button>
+                </div>
+                <form id="addSubjectForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="newSubjectName">Subject Name</label>
+                            <input
+                                type="text"
+                                id="newSubjectName"
+                                placeholder="e.g. Machine Learning, Math"
+                                required
+                                maxlength="100"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="newSubjectIcon">Icon Emoji</label>
+                            <input
+                                type="text"
+                                id="newSubjectIcon"
+                                value="📚"
+                                maxlength="4"
+                                style="font-size: 20px; width: 60px; text-align: center;"
+                            >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelSubjectBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Subject</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- =========================
+             MODAL: IN-APP DOCUMENT VIEWER
+        ========================= -->
+        <div class="modal-backdrop viewer-backdrop" id="viewerModal" style="display: none;">
+            <div class="modal-dialog viewer-dialog" id="viewerDialog">
+                <div class="viewer-header">
+                    <div class="viewer-title-group">
+                        <span class="viewer-file-icon" id="viewerFileIcon">📄</span>
+                        <div class="viewer-title-info">
+                            <h3 id="viewerTitle">Material Title</h3>
+                            <div class="viewer-meta-tags">
+                                <span class="viewer-tag subject-tag" id="viewerSubjectTag">Subject</span>
+                                <span class="viewer-tag type-tag" id="viewerTypeTag">PDF</span>
+                                <span class="viewer-tag size-tag" id="viewerSizeTag">2.4 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewer-header-actions">
+                        <button type="button" class="viewer-action-btn" id="viewerDownloadBtn" title="Download File">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Download</span>
+                        </button>
+                        <a href="#" class="viewer-action-btn" id="viewerRawTabBtn" title="Open Original File in New Tab" target="_blank" rel="noopener noreferrer">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <span>Open Tab</span>
+                        </a>
+                        <button type="button" class="viewer-action-btn icon-only" id="viewerFullscreenBtn" title="Toggle Fullscreen">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                        </button>
+                        <button type="button" class="modal-close-btn viewer-close-btn" id="closeViewerModalBtn" title="Close Viewer">&times;</button>
+                    </div>
+                </div>
+
+                <div class="viewer-body" id="viewerBody">
+                    <div id="viewerContentArea" class="viewer-content-area">
+                        <!-- Dynamic Viewer inserted by materials.js -->
+                    </div>
+                </div>
+
+                <div class="viewer-footer" id="viewerFooter">
+                    <div class="viewer-notes" id="viewerNotesContainer">
+                        <strong class="viewer-notes-label">Description / Notes:</strong>
+                        <p id="viewerNotesText" class="viewer-notes-text">No notes provided for this study material.</p>
+                    </div>
+                    <div class="viewer-footer-controls">
+                        <span id="viewerDateTag" class="viewer-date-tag">Added Oct 20, 2026</span>
+                        <button type="button" class="btn btn-secondary btn-sm" id="viewerEditBtn">✏️ Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications Container -->
+        <div class="toast-container" id="toastContainer"></div>
+
+    </div>
+
+    <script src="../js/materials.js"></script>
+    <script src="../js/auth-guard.js"></script>
+</body>
+
+</html>
